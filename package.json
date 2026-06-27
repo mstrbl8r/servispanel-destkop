@@ -1,0 +1,49 @@
+{
+  "name": "servispanel-desktop",
+  "version": "1.0.0",
+  "description": "ServisPanel Masaüstü Uygulaması",
+  "main": "main.js",
+  "author": "ServisPanel",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder --win --x64"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.teknikcepte.servispanel",
+    "productName": "ServisPanel",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ServisPanel"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "offline.html",
+      "splash.html",
+      "build/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "mstrbl8r",
+      "repo": "servispanel-destkop"
+    }
+  }
+}
